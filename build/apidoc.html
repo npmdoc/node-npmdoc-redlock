@@ -1,0 +1,479 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/mike-marcacci/node-redlock"
+
+    >redlock (v2.1.0)</a>
+</h1>
+<h4>A node.js redlock implementation for distributed redis locks</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.redlock">module redlock</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redlock.redlock">
+            function <span class="apidocSignatureSpan"></span>redlock
+            <span class="apidocSignatureSpan">(clients, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redlock.Lock">
+            function <span class="apidocSignatureSpan">redlock.</span>Lock
+            <span class="apidocSignatureSpan">(redlock, resource, value, expiration)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redlock.LockError">
+            function <span class="apidocSignatureSpan">redlock.</span>LockError
+            <span class="apidocSignatureSpan">(message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redlock.LockError.super_">
+            function <span class="apidocSignatureSpan">redlock.</span>LockError.super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redlock.super_">
+            function <span class="apidocSignatureSpan">redlock.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">redlock.</span>Lock.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.redlock.Lock">module redlock.Lock</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redlock.Lock.Lock">
+            function <span class="apidocSignatureSpan">redlock.</span>Lock
+            <span class="apidocSignatureSpan">(redlock, resource, value, expiration)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.redlock.Lock.prototype">module redlock.Lock.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redlock.Lock.prototype.extend">
+            function <span class="apidocSignatureSpan">redlock.Lock.prototype.</span>extend
+            <span class="apidocSignatureSpan">(ttl, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redlock.Lock.prototype.unlock">
+            function <span class="apidocSignatureSpan">redlock.Lock.prototype.</span>unlock
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.redlock.LockError">module redlock.LockError</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redlock.LockError.LockError">
+            function <span class="apidocSignatureSpan">redlock.</span>LockError
+            <span class="apidocSignatureSpan">(message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redlock.LockError.super_">
+            function <span class="apidocSignatureSpan">redlock.LockError.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.redlock.LockError.super_">module redlock.LockError.super_</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redlock.LockError.super_.super_">
+            function <span class="apidocSignatureSpan">redlock.LockError.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.redlock.LockError.super_.captureStackTrace">
+            function <span class="apidocSignatureSpan">redlock.LockError.super_.</span>captureStackTrace
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">redlock.LockError.super_.</span>stackTraceLimit</span>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.redlock" id="apidoc.module.redlock">module redlock</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.redlock.redlock" id="apidoc.element.redlock.redlock">
+        function <span class="apidocSignatureSpan"></span>redlock
+        <span class="apidocSignatureSpan">(clients, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Redlock(clients, options) {
+	// set default options
+	options = options || {};
+	this.driftFactor = typeof options.driftFactor === &#x27;number&#x27; ? options.driftFactor : defaults.driftFactor;
+	this.retryCount  = typeof options.retryCount  === &#x27;number&#x27; ? options.retryCount  : defaults.retryCount;
+	this.retryDelay  = typeof options.retryDelay  === &#x27;number&#x27; ? options.retryDelay  : defaults.retryDelay;
+	this.lockScript  = typeof options.lockScript  === &#x27;function&#x27; ? options.lockScript(lockScript) : lockScript;
+	this.unlockScript = typeof options.unlockScript  === &#x27;function&#x27; ? options.unlockScript(unlockScript) : unlockScript;
+	this.extendScript = typeof options.extendScript  === &#x27;function&#x27; ? options.extendScript(extendScript) : extendScript;
+
+	// set the redis servers from additional arguments
+	this.servers = clients;
+	if(this.servers.length === 0)
+		throw new Error(&#x27;Redlock must be instantiated with at least one redis server.&#x27;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.redlock.Lock" id="apidoc.element.redlock.Lock">
+        function <span class="apidocSignatureSpan">redlock.</span>Lock
+        <span class="apidocSignatureSpan">(redlock, resource, value, expiration)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Lock(redlock, resource, value, expiration) {
+	this.redlock    = redlock;
+	this.resource   = resource;
+	this.value      = value;
+	this.expiration = expiration;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.redlock.LockError" id="apidoc.element.redlock.LockError">
+        function <span class="apidocSignatureSpan">redlock.</span>LockError
+        <span class="apidocSignatureSpan">(message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function LockError(message) {
+	Error.call(this);
+	Error.captureStackTrace(this, LockError);
+	this.name = &#x27;LockError&#x27;;
+	this.message = message || &#x27;Failed to lock the resource.&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.redlock.LockError.super_" id="apidoc.element.redlock.LockError.super_">
+        function <span class="apidocSignatureSpan">redlock.</span>LockError.super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Error() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.redlock.super_" id="apidoc.element.redlock.super_">
+        function <span class="apidocSignatureSpan">redlock.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EventEmitter() {
+  EventEmitter.init.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.redlock.Lock" id="apidoc.module.redlock.Lock">module redlock.Lock</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.redlock.Lock.Lock" id="apidoc.element.redlock.Lock.Lock">
+        function <span class="apidocSignatureSpan">redlock.</span>Lock
+        <span class="apidocSignatureSpan">(redlock, resource, value, expiration)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Lock(redlock, resource, value, expiration) {
+	this.redlock    = redlock;
+	this.resource   = resource;
+	this.value      = value;
+	this.expiration = expiration;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.redlock.Lock.prototype" id="apidoc.module.redlock.Lock.prototype">module redlock.Lock.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.redlock.Lock.prototype.extend" id="apidoc.element.redlock.Lock.prototype.extend">
+        function <span class="apidocSignatureSpan">redlock.Lock.prototype.</span>extend
+        <span class="apidocSignatureSpan">(ttl, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function extend(ttl, callback) {
+	return this.redlock.extend(this, ttl, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```js
+redlock.lock(&#x27;locks:account:322456&#x27;, 1000).then(function(lock) {
+
+	// ...do something here...
+
+	// if you need more time, you can continue to extend
+	// the lock as long as you never let it expire
+	return lock.<span class="apidocCodeKeywordSpan">extend</span>(1000).then(function(lock){
+
+		// ...do something here...
+
+		// unlock your resource when you are done
+		return lock.unlock()
+		.catch(function(err) {
+			// we weren&#x27;t able to reach redis; your lock will eventually
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.redlock.Lock.prototype.unlock" id="apidoc.element.redlock.Lock.prototype.unlock">
+        function <span class="apidocSignatureSpan">redlock.Lock.prototype.</span>unlock
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function unlock(callback) {
+	return this.redlock.unlock(this, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var ttl = 1000;
+
+redlock.lock(resource, ttl).then(function(lock) {
+
+	// ...do something here...
+
+	// unlock your resource when you are done
+	return lock.<span class="apidocCodeKeywordSpan">unlock</span>()
+	.catch(function(err) {
+		// we weren&#x27;t able to reach redis; your lock will eventually
+		// expire, but you probably want to log this error
+		console.error(err);
+	});
+});
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.redlock.LockError" id="apidoc.module.redlock.LockError">module redlock.LockError</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.redlock.LockError.LockError" id="apidoc.element.redlock.LockError.LockError">
+        function <span class="apidocSignatureSpan">redlock.</span>LockError
+        <span class="apidocSignatureSpan">(message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function LockError(message) {
+	Error.call(this);
+	Error.captureStackTrace(this, LockError);
+	this.name = &#x27;LockError&#x27;;
+	this.message = message || &#x27;Failed to lock the resource.&#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.redlock.LockError.super_" id="apidoc.element.redlock.LockError.super_">
+        function <span class="apidocSignatureSpan">redlock.LockError.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Error() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.redlock.LockError.super_" id="apidoc.module.redlock.LockError.super_">module redlock.LockError.super_</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.redlock.LockError.super_.super_" id="apidoc.element.redlock.LockError.super_.super_">
+        function <span class="apidocSignatureSpan">redlock.LockError.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Error() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.redlock.LockError.super_.captureStackTrace" id="apidoc.element.redlock.LockError.super_.captureStackTrace">
+        function <span class="apidocSignatureSpan">redlock.LockError.super_.</span>captureStackTrace
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function captureStackTrace() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+// LockError
+// ---------
+// This error is returned when there is an error locking a resource.
+function LockError(message) {
+	Error.call(this);
+	Error.<span class="apidocCodeKeywordSpan">captureStackTrace</span>(this, LockError);
+	this.name = &#x27;LockError&#x27;;
+	this.message = message || &#x27;Failed to lock the resource.&#x27;;
+}
+
+util.inherits(LockError, Error);
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
